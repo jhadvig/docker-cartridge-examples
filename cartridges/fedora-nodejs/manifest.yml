@@ -1,0 +1,14 @@
+---
+Name: nodejs
+Version: '0.1'
+Base: openshift/fedora-nodejs:latest
+User: nodejs_app
+Prepare: '/opt/openshift/prepare /tmp/source'
+Execute: '/opt/openshift/launch'
+Volumes:
+  Prepare:
+    Location: '/tmp/source'
+Endpoints:
+- Name: EXAMPLE_PORT_1
+  Port: 8000
+  Protocols: [http, ws]
